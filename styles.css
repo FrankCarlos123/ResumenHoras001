@@ -1,0 +1,234 @@
+:root {
+    --background: #121212;
+    --surface: #1e1e1e;
+    --surface-hover: #2d2d2d;
+    --primary: #ff9800;
+    --text: #ffffff;
+    --text-secondary: #a0a0a0;
+    --day-bg: #2d2d2d;
+    --day-text: #ffffff;
+    --weekend-bg: #ff4545;
+    --border-color: #333333;
+    --modal-overlay: rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--surface);
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.nav-button {
+    background-color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.shift-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.shift-card {
+    background-color: var(--surface);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+}
+
+.date-box {
+    background-color: var(--day-bg);
+    color: var(--day-text);
+    border-radius: 8px;
+    padding: 0.5rem;
+    width: 80px;
+    text-align: center;
+}
+
+.date-box.weekend {
+    background-color: var(--weekend-bg);
+}
+
+.shift-details {
+    flex-grow: 1;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: var(--modal-overlay);
+}
+
+.modal-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--surface);
+    padding: 1.5rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.time-inputs {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.time-input {
+    flex: 1;
+}
+
+.time-input input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--day-bg);
+    color: var(--text);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.modal-button {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.save-button {
+    background-color: var(--primary);
+    color: black;
+}
+
+.cancel-button {
+    background-color: var(--day-bg);
+    color: var(--text);
+}
+
+.summary-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.summary-section {
+    flex: 1;
+    position: relative;
+}
+
+.summary-button {
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+}
+
+.summary-button.monthly {
+    background-color: #2196f3;
+}
+
+.summary-button.yearly {
+    background-color: #4caf50;
+}
+
+.month-selector,
+.year-selector {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--surface);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    border: 1px solid var(--border-color);
+    z-index: 100;
+}
+
+.month-selector.active,
+.year-selector.active {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+select {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--day-bg);
+    color: var(--text);
+}
+
+.totals-card {
+    background-color: var(--surface);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.totals-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.rate-input {
+    width: 60px;
+    text-align: center;
+    background: var(--surface-hover);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 4px;
+    color: var(--primary);
+}

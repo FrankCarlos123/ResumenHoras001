@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shift Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="nav-button" onclick="previousWeek()">&lt;</button>
+            <h2 id="date-range"></h2>
+            <button class="nav-button" onclick="nextWeek()">&gt;</button>
+        </div>
+
+        <div class="shift-list" id="shifts-container"></div>
+
+        <div class="summary-buttons">
+            <div class="summary-section">
+                <button class="summary-button monthly" onclick="toggleMonthSelector()">
+                    Monthly Summary
+                </button>
+                <div class="month-selector" id="monthSelector">
+                    <select id="monthSelect"></select>
+                    <select id="yearSelectMonth"></select>
+                    <button onclick="getMonthlyReport()">View Summary</button>
+                </div>
+            </div>
+            
+            <div class="summary-section">
+                <button class="summary-button yearly" onclick="toggleYearSelector()">
+                    Yearly Summary
+                </button>
+                <div class="year-selector" id="yearSelector">
+                    <select id="yearSelect"></select>
+                    <button onclick="getYearlyReport()">View Summary</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="totals-container"></div>
+    </div>
+
+    <div class="modal" id="shift-modal">
+        <div class="modal-content">
+            <h3>Edit Shift</h3>
+            <div class="time-inputs">
+                <div class="time-input">
+                    <label>Start Time</label>
+                    <input type="time" id="start-time">
+                </div>
+                <div class="time-input">
+                    <label>End Time</label>
+                    <input type="time" id="end-time">
+                </div>
+            </div>
+            <div class="break-inputs">
+                <h4>Break (unpaid)</h4>
+                <div class="time-inputs">
+                    <div class="time-input">
+                        <label>Break Start</label>
+                        <input type="time" id="break-start">
+                    </div>
+                    <div class="time-input">
+                        <label>Break End</label>
+                        <input type="time" id="break-end">
+                    </div>
+                </div>
+            </div>
+            <div class="free-day-toggle">
+                <input type="checkbox" id="free-day-toggle">
+                <label for="free-day-toggle">Free Day</label>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-button cancel-button" onclick="closeModal()">Cancel</button>
+                <button class="modal-button save-button" onclick="saveShift()">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
